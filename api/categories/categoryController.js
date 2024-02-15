@@ -3,7 +3,6 @@ const categoryService = require("./categoryService");
 exports.categoryPost = (req, res, next) => {
   let bodyData = req.body;
   bodyData.alias = bodyData.title.split(" ").join("-").toLowerCase();
-  console.log("bodyData", bodyData);
   categoryService
     .createCategory(bodyData)
     .then((data) => {
