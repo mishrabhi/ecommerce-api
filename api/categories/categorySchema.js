@@ -7,6 +7,11 @@ const categorySchema = new Schema(
       type: String,
       required: true,
     },
+    alias: {
+      type: String,
+      required: true,
+      unique: true,
+    },
     shortDescription: {
       type: String,
       required: true,
