@@ -26,3 +26,28 @@ exports.productList = (req, res, next) => {
       next(err);
     });
 };
+
+exports.deleteProduct = (req, res, next) => {
+  let alias = req.params.alias;
+  productService
+    .deleteProduct(alias)
+    .then((dt) => {
+      res.status(204).json({ message: `product deleted` });
+    })
+    .catch((err) => {
+      next(err);
+    });
+};
+
+exports.updateProduct = (req, res, next) => {
+  let alias = req.params.alias;
+  let bodyData = req.body;
+  productService
+    .updateProduct(alias, bodyData)
+    .then((data) => {
+      res.status(200).json({ message: `Product Updated`, data });
+    })
+    .catch((err) => {
+      next(err);
+    });
+};
