@@ -28,7 +28,7 @@ const productSchema = new Schema(
       required: true,
     },
     categoryId: {
-      type: Number,
+      type: Schema.Types.ObjectId,
       required: true,
     },
   },
