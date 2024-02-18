@@ -51,3 +51,19 @@ exports.updateProduct = (req, res, next) => {
       next(err);
     });
 };
+
+exports.getProductByAlias = (req, res, next) => {
+  let alias = req.params.alias;
+  productService
+    .getProductByAlias(alias)
+    .then((data) => {
+      if (data) {
+        res.status(200).json({ message: "ok", data });
+      } else {
+        res.status(400).json({ message: `Product not found` });
+      }
+    })
+    .catch((err) => {
+      next(err);
+    });
+};

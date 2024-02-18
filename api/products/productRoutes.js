@@ -6,6 +6,7 @@ router.route("/").get(controller.productList).post(controller.productPost);
 
 router
   .route("/:alias")
+  .get(controller.getProductByAlias)
   .delete(controller.deleteProduct)
   .put(controller.updateProduct);
 

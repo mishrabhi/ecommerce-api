@@ -53,3 +53,15 @@ module.exports.updateProduct = (alias, bodyData) => {
       });
   });
 };
+
+module.exports.getProductByAlias = (alias) => {
+  return new Promise((resolve, reject) => {
+    Product.findOne({ alias: alias })
+      .then((data) => {
+        resolve(data);
+      })
+      .catch((err) => {
+        reject(err);
+      });
+  });
+};
