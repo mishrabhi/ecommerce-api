@@ -27,6 +27,10 @@ const productSchema = new Schema(
       type: Number,
       required: true,
     },
+    categoryId: {
+      type: Number,
+      required: true,
+    },
   },
   { timestamps: true }
 );
